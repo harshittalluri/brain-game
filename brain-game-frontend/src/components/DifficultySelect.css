@@ -1,0 +1,35 @@
+.difficulty-container {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.difficulty-title {
+  font-size: 40px;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff;
+}
+
+.levels {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.level {
+  border: none;
+  padding: 18px 35px;
+  font-size: 24px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.25s ease;
+}
+
+.easy { background: #9effa1; }
+.medium { background: #ffe86f; }
+.hard { background: #ff6b6b; }
+
+.level:hover {
+  transform: scale(1.12);
+}
