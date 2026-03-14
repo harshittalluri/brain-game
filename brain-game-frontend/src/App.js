@@ -20,6 +20,11 @@ import Game2048 from "./components/Game2048";
 import SnakeGame from "./components/SnakeGame";
 import TicTacToe from "./components/TicTacToe";
 
+// Purble Place games
+import ComfyCakes from "./components/Comfycakes";
+import PurbleShop from "./components/Purbleshop";
+import CompuVille from "./components/Compuville";
+
 function App() {
   return (
     <>
@@ -54,6 +59,11 @@ function App() {
         <Route path="/2048" element={<Game2048 />} />
         <Route path="/snake" element={<SnakeGame />} />
         <Route path="/tictactoe" element={<TicTacToe />} />
+
+        {/* Purble Place Games */}
+        <Route path="/comfy-cakes" element={<ComfyCakes />} />
+        <Route path="/purble-shop" element={<PurbleShop />} />
+        <Route path="/compu-ville" element={<CompuVille />} />
 
         {/* Leaderboard */}
         <Route path="/leaderboard" element={<Leaderboard />} />

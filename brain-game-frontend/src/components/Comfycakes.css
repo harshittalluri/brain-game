@@ -1,0 +1,122 @@
+/* ComfyCakes.css */
+.cc-wrap {
+    min-height: calc(100vh - 80px);
+    background: #0a0a0f;
+    padding: 40px 24px 80px;
+    font-family: "Segoe UI", sans-serif;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  .cc-title {
+    font-size: 2.4rem; font-weight: 900; text-align: center; margin-bottom: 8px;
+    background: linear-gradient(135deg, #ffab40, #ff4081);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .cc-title-sm { font-size: 1.4rem; font-weight: 900; margin: 0;
+    background: linear-gradient(135deg, #ffab40, #ff4081);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .cc-sub { text-align: center; color: #666; margin-bottom: 32px; }
+  
+  /* Difficulty */
+  .cc-diff-grid { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+  .cc-diff-btn {
+    background: #111118; border: 2px solid #222; border-radius: 16px;
+    padding: 24px 32px; cursor: pointer; color: #fff;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    min-width: 160px; transition: all 0.2s;
+  }
+  .cc-diff-btn:hover { transform: translateY(-4px); }
+  .cc-diff-btn.easy:hover   { border-color: #69f0ae; box-shadow: 0 0 20px #69f0ae33; }
+  .cc-diff-btn.medium:hover { border-color: #ffab40; box-shadow: 0 0 20px #ffab4033; }
+  .cc-diff-btn.hard:hover   { border-color: #ff4081; box-shadow: 0 0 20px #ff408133; }
+  .cc-diff-icon { font-size: 2rem; }
+  .cc-diff-label { font-size: 1.1rem; font-weight: 700; }
+  .cc-diff-desc { font-size: 0.75rem; color: #777; text-align: center; }
+  
+  /* Top bar */
+  .cc-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+  }
+  .cc-stats { display: flex; gap: 16px; color: #aaa; font-size: 0.9rem; }
+  .cc-timer { color: #ffab40; font-weight: 700; }
+  .cc-timer.urgent { color: #ff4081; animation: blink 0.5s infinite; }
+  @keyframes blink { 50% { opacity: 0.4; } }
+  
+  /* Main layout */
+  .cc-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width: 860px) {
+    .cc-main { grid-template-columns: 1fr 1fr; }
+    .controls-panel { grid-column: 1 / -1; }
+  }
+  @media (max-width: 540px) {
+    .cc-main { grid-template-columns: 1fr; }
+  }
+  
+  .cc-panel {
+    background: #111118; border: 1px solid #222;
+    border-radius: 16px; padding: 20px;
+  }
+  .cc-panel h3 { margin: 0 0 16px; font-size: 1rem; color: #888; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  
+  /* Order card */
+  .cc-order-card { display: flex; flex-direction: column; gap: 12px; }
+  .cc-order-row { display: flex; flex-direction: column; gap: 2px; }
+  .cc-order-row label { font-size: 0.7rem; color: #555; text-transform: uppercase; letter-spacing: 1px; }
+  .cc-order-row span  { font-size: 0.95rem; color: #fff; }
+  
+  /* Cake preview */
+  .cc-cake-preview {
+    background: #0d0d14; border-radius: 12px; border: 2px solid #222;
+    min-height: 140px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+    position: relative; padding: 16px; transition: border-color 0.3s;
+  }
+  .cc-cake-preview.correct { border-color: #69f0ae; box-shadow: 0 0 20px #69f0ae22; }
+  .cc-cake-preview.wrong   { border-color: #ff4081; box-shadow: 0 0 20px #ff408122; }
+  .cc-cake-visual   { font-size: 3.5rem; }
+  .cc-cake-frosting { font-size: 0.85rem; color: #ffab40; }
+  .cc-cake-toppings { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; font-size: 1.4rem; }
+  .cc-badge {
+    position: absolute; bottom: 8px; right: 8px;
+    font-size: 0.8rem; font-weight: 700; padding: 4px 10px; border-radius: 8px;
+  }
+  .cc-badge.correct { background: #0d2018; color: #69f0ae; }
+  .cc-badge.wrong   { background: #1a080f; color: #ff4081; }
+  
+  /* Controls */
+  .cc-control-group { margin-bottom: 16px; }
+  .cc-control-group label { display: block; font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .cc-options { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cc-opt {
+    background: #1a1a2a; border: 1px solid #333; color: #aaa;
+    padding: 6px 12px; border-radius: 8px; font-size: 0.82rem; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .cc-opt:hover  { border-color: #ffab40; color: #ffab40; }
+  .cc-opt.selected { background: #2a1a05; border-color: #ffab40; color: #ffab40; }
+  
+  /* Buttons */
+  .cc-btn { padding: 10px 22px; border-radius: 10px; font-weight: 700; cursor: pointer; border: none; font-size: 0.9rem; }
+  .cc-btn.primary { background: #ffab40; color: #000; width: 100%; margin-top: 8px; }
+  .cc-btn.primary:hover { background: #ffc26a; }
+  .cc-btn.outline { background: transparent; border: 1px solid #444; color: #aaa; }
+  .cc-btn.outline:hover { border-color: #fff; color: #fff; }
+  .cc-btn.sm { padding: 6px 14px; font-size: 0.8rem; }
+  
+  /* Done screen */
+  .cc-done {
+    max-width: 360px; margin: 80px auto; background: #111118;
+    border: 1px solid #222; border-radius: 20px; padding: 40px;
+    text-align: center;
+  }
+  .cc-done h2 { font-size: 2rem; margin-bottom: 12px; }
+  .cc-done p  { color: #aaa; margin-bottom: 24px; }
+  .cc-done strong { color: #ffab40; }

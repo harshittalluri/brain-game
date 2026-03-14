@@ -1,141 +1,340 @@
 /* src/components/GameSelect.css */
 
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Barlow:wght@400;500;600&display=swap');
+
 .gs-wrapper {
-    min-height: calc(100vh - 80px);
-    width: 100%;
-    background: #0a0a0f;
-    padding: 48px 40px 80px;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
-    overflow-x: hidden;   /* ← only hides overflow on THIS page */
-  }
-  
-  .gs-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-  
-  .gs-title {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: -1px;
-    margin: 0 0 10px;
-  }
-  
-  .gs-subtitle {
-    color: #888;
-    font-size: 1.05rem;
-    margin: 0;
-  }
-  
-  .gs-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    width: 100%;
-  }
-  
-  /* 5th card spans full width and centres itself */
-  .gs-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 50%;
-    margin: 0 auto;
-    width: 100%;
-  }
-  
-  @media (max-width: 560px) {
-    .gs-grid { grid-template-columns: 1fr; }
-    .gs-card:last-child:nth-child(odd) {
-      max-width: 100%;
-      grid-column: 1;
-    }
-    .gs-wrapper { padding: 32px 16px 60px; }
-  }
-  
-  .gs-card {
-    position: relative;
-    background: #111118;
-    border: 1px solid #222;
-    border-radius: 20px;
-    padding: 32px 28px 28px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    animation: fadeUp 0.5s ease both;
-  }
-  
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  
-  .gs-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--accent);
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-  
-  .gs-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent);
-    box-shadow: 0 0 32px color-mix(in srgb, var(--accent) 20%, transparent);
-  }
-  
-  .gs-card:hover::before { opacity: 1; }
-  
-  .gs-tag {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-    border-radius: 99px;
-    padding: 3px 10px;
-    margin-bottom: 20px;
-  }
-  
-  .gs-icon {
-    font-size: 2.8rem;
-    margin-bottom: 16px;
-    line-height: 1;
-  }
-  
-  .gs-card-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #fff;
-    margin: 0 0 10px;
-  }
-  
-  .gs-card-desc {
-    font-size: 0.88rem;
-    color: #777;
-    line-height: 1.6;
-    margin: 0 0 24px;
-  }
-  
-  .gs-btn {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 8px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    letter-spacing: 0.5px;
-  }
-  
-  .gs-btn:hover {
-    background: var(--accent);
-    color: #0a0a0f;
-  }
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  background: #0d0d0d;
+  box-sizing: border-box;
+  font-family: "Barlow", "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ── HERO SECTION ─────────────────────────────────── */
+.gs-hero {
+  position: relative;
+  width: 100%;
+  min-height: 340px;
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a0a1a 40%, #0a1a2a 100%);
+  display: flex;
+  align-items: center;
+  padding: 60px 48px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.gs-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(255, 30, 60, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(0, 180, 255, 0.1) 0%, transparent 50%);
+}
+
+.gs-hero-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.15) 2px,
+    rgba(0,0,0,0.15) 4px
+  );
+  pointer-events: none;
+}
+
+.gs-hero-content {
+  position: relative; z-index: 2;
+  max-width: 560px;
+}
+
+.gs-hero-tag {
+  display: inline-block;
+  background: #ff1e3c;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  margin-bottom: 16px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%);
+}
+
+.gs-hero-title {
+  font-family: "Rajdhani", "Segoe UI", sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin: 0 0 16px;
+  text-shadow: 0 0 40px rgba(255,30,60,0.4);
+}
+
+.gs-hero-title span {
+  color: #ff1e3c;
+}
+
+.gs-hero-sub {
+  color: #aaa;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 28px;
+  line-height: 1.6;
+}
+
+.gs-hero-cta {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+
+.gs-hero-btn {
+  padding: 12px 28px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none; cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+  transition: all 0.2s;
+}
+.gs-hero-btn.primary { background: #ff1e3c; color: #fff; padding-right: 36px; }
+.gs-hero-btn.primary:hover { background: #ff3d57; }
+.gs-hero-btn.secondary { background: transparent; color: #fff; border: 1px solid #444; clip-path: none; border-radius: 0; }
+.gs-hero-btn.secondary:hover { border-color: #ff1e3c; color: #ff1e3c; }
+
+.gs-hero-stats {
+  position: absolute; right: 48px; bottom: 32px; z-index: 2;
+  display: flex; gap: 32px;
+}
+.gs-hero-stat { text-align: center; }
+.gs-hero-stat-num { display: block; font-family: "Rajdhani", sans-serif; font-size: 2rem; font-weight: 700; color: #ff1e3c; line-height: 1; }
+.gs-hero-stat-label { display: block; font-size: 0.65rem; color: #666; letter-spacing: 2px; text-transform: uppercase; }
+
+/* ── CATEGORY FILTER BAR ──────────────────────────── */
+.gs-filter-bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 20px 48px;
+  border-bottom: 1px solid #1a1a1a;
+  flex-wrap: wrap;
+  background: #0d0d0d;
+}
+
+.gs-filter-label {
+  font-size: 0.7rem; color: #555;
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-right: 8px;
+}
+
+.gs-filter-btn {
+  background: transparent;
+  border: 1px solid #222;
+  color: #666;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.gs-filter-btn:hover  { border-color: #ff1e3c; color: #ff1e3c; }
+.gs-filter-btn.active { background: #ff1e3c; border-color: #ff1e3c; color: #fff; }
+
+/* ── SECTION TITLE ────────────────────────────────── */
+.gs-section {
+  padding: 40px 48px 60px;
+}
+
+.gs-section-header {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 28px;
+}
+
+.gs-section-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: #fff; text-transform: uppercase;
+  letter-spacing: 2px; margin: 0;
+}
+
+.gs-section-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, #ff1e3c44, transparent);
+}
+
+.gs-section-count {
+  font-size: 0.75rem; color: #ff1e3c;
+  letter-spacing: 1px;
+}
+
+/* ── GAME GRID ────────────────────────────────────── */
+.gs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 1100px) { .gs-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px)  { .gs-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px)  { .gs-grid { grid-template-columns: 1fr; } }
+
+/* ── GAME CARD ────────────────────────────────────── */
+.gs-card {
+  position: relative;
+  background: #111;
+  border: 1px solid #1e1e1e;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  animation: fadeUp 0.5s ease both;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Card image area */
+.gs-card-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 20%, #0a0a14),
+    color-mix(in srgb, var(--accent) 5%, #0a0a0a)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gs-card-img-icon {
+  font-size: 4rem;
+  filter: drop-shadow(0 0 20px var(--accent));
+  transition: transform 0.3s ease;
+}
+
+.gs-card-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, #111 100%);
+}
+
+.gs-card:hover .gs-card-img-icon {
+  transform: scale(1.15);
+}
+
+/* FREE badge */
+.gs-card-badge {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: #ff1e3c;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Tag on image */
+.gs-tag {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(0,0,0,0.7);
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  padding: 3px 8px;
+  z-index: 2;
+}
+
+/* Card body */
+.gs-card-body {
+  padding: 14px 16px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.gs-card-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 6px;
+}
+
+.gs-card-desc {
+  font-size: 0.78rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 12px;
+  flex: 1;
+}
+
+.gs-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gs-card-free {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ff1e3c;
+  text-transform: uppercase;
+}
+
+.gs-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.15s;
+}
+
+.gs-btn:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Hover overlay */
+.gs-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5),
+              0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .gs-hero { padding: 40px 20px; }
+  .gs-hero-stats { display: none; }
+  .gs-filter-bar { padding: 16px 20px; }
+  .gs-section { padding: 24px 20px 40px; }
+}

@@ -1,171 +1,101 @@
-/* FULL PAGE BACKGROUND */
+/* Welcome.css */
 
-.welcome-page{
-  min-height:100vh;
-  width:100%;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:linear-gradient(
-    135deg,
-    #0f172a,
-    #1e1b4b,
-    #312e81
-  );
+.welcome-page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-
-/* MAIN WRAPPER */
-
-.welcome-wrapper{
-  width:100%;
-  max-width:1400px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:0 80px;
-  gap:60px;
+/* ANIME IMAGE — covers entire screen */
+.brain-image {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  pointer-events: none;
 }
 
+/* BUTTONS BOX — fixed to right side, always visible */
+.welcome-buttons-box {
+  position: fixed;
+  left: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 280px;
 
-/* LEFT IMAGE SECTION */
-
-.image-section{
-  flex:1.3;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  /* Dark card behind buttons */
+  background: rgba(5, 2, 20, 0.82);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 20px;
+  padding: 28px 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(120, 40, 255, 0.25);
 }
 
-
-/* IMAGE */
-
-.brain-image{
-  width:125%;
-  max-width:900px;
-  height:auto;
-
-  animation:float 6s ease-in-out infinite;
-
-  /* prevents image from blocking button clicks */
-  pointer-events:none;
-}
-
-
-/* RIGHT CONTENT */
-
-.content-section{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-
-/* TITLE */
-
-.welcome-title{
-  font-size:60px;
-  color:white;
-  margin-bottom:10px;
-
+.welcome-title {
+  font-size: 32px;
+  color: white;
+  margin: 0;
   text-shadow:
-  0 0 10px #9333ea,
-  0 0 20px #a855f7,
-  0 0 40px #c084fc;
+    0 0 10px #9333ea,
+    0 0 20px #a855f7;
+  line-height: 1.2;
 }
 
-
-/* SUBTITLE */
-
-.welcome-subtitle{
-  color:#cbd5f5;
-  font-size:18px;
-  margin-bottom:40px;
+.welcome-subtitle {
+  color: #a78bfa;
+  font-size: 14px;
+  margin: 0;
 }
 
-
-/* BUTTON AREA */
-
-.welcome-buttons{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  width:300px;
+.btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 0.5px;
+  text-align: center;
+  width: 100%;
 }
 
-
-/* BUTTON BASE */
-
-.btn{
-  padding:16px;
-  border:none;
-  border-radius:30px;
-
-  font-size:18px;
-  font-weight:600;
-
-  cursor:pointer;
-  transition:0.3s;
+.all-games {
+  background: linear-gradient(45deg, #7c3aed, #a855f7);
+  color: white;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.5);
+}
+.all-games:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(124, 58, 237, 0.7);
 }
 
-
-/* MATH */
-
-.math{
-  background:linear-gradient(45deg,#22c55e,#4ade80);
-  color:white;
+.leaderboard {
+  background: linear-gradient(45deg, #ec4899, #f472b6);
+  color: white;
+  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.5);
+}
+.leaderboard:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(236, 72, 153, 0.7);
 }
 
-.math:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 20px #22c55e;
-}
-
-
-/* SUDOKU */
-
-.sudoku{
-  background:linear-gradient(45deg,#facc15,#fde047);
-}
-
-.sudoku:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 20px #facc15;
-}
-
-
-/* LEADERBOARD */
-
-.leaderboard{
-  background:linear-gradient(45deg,#ec4899,#f472b6);
-  color:white;
-}
-
-.leaderboard:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 20px #ec4899;
-}
-
-
-/* FLOAT ANIMATION */
-
-@keyframes float{
-
-  0%{
-    transform:translateY(0px);
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .welcome-buttons-box {
+    left: 50%;
+    transform: translate(50%, -50%);
+    width: 260px;
   }
-
-  50%{
-    transform:translateY(-15px);
-  }
-
-  100%{
-    transform:translateY(0px);
-  }
-
 }
