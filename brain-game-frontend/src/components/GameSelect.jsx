@@ -48,6 +48,33 @@ const games = [
     color: "#ce93d8",
     tag: "Speed",
   },
+  {
+    id: "2048",
+    title: "2048",
+    description: "Slide tiles and combine them to reach 2048!",
+    icon: "🎯",
+    path: "/2048",
+    color: "#edc22e",
+    tag: "Puzzle",
+  },
+  {
+    id: "snake",
+    title: "Snake",
+    description: "Eat food, grow longer, don't hit the walls!",
+    icon: "🐍",
+    path: "/snake",
+    color: "#69f0ae",
+    tag: "Arcade",
+  },
+  {
+    id: "ttt",
+    title: "Tic Tac Toe",
+    description: "Beat the unbeatable AI — if you can!",
+    icon: "✖️",
+    path: "/tictactoe",
+    color: "#ce93d8",
+    tag: "Strategy",
+  },
 ];
 
 export default function GameSelect() {

@@ -1,0 +1,74 @@
+/* src/components/SnakeGame.css */
+.sn-wrap {
+    min-height: calc(100vh - 80px);
+    background: #0a0a0f;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 32px 20px 60px;
+    font-family: "Segoe UI", sans-serif; color: #fff;
+  }
+  .sn-title { font-size: 2.2rem; font-weight: 900; margin-bottom: 16px;
+    background: linear-gradient(135deg, #69f0ae, #00e5ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .sn-stats { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+  .sn-stat  { background: #1e1e2e; border-radius: 10px; padding: 8px 20px; text-align: center; }
+  .sn-stat span  { display: block; font-size: 1.3rem; font-weight: 800; color: #69f0ae; }
+  .sn-stat label { display: block; font-size: 0.65rem; color: #666; letter-spacing: 1px; }
+  .sn-btn { background: #69f0ae; color: #000; border: none; padding: 10px 20px;
+    border-radius: 10px; font-weight: 800; cursor: pointer; }
+  .sn-hint { color: #555; font-size: 0.82rem; margin-bottom: 12px; }
+  
+  .sn-board {
+    position: relative;
+    background: #0d1117;
+    border: 2px solid #1e2a1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 32px rgba(105,240,174,0.1);
+  }
+  .sn-cell {
+    position: absolute;
+    background: #69f0ae;
+    border-radius: 4px;
+    transition: top 0.1s linear, left 0.1s linear;
+  }
+  .sn-cell.head {
+    background: #00e5ff;
+    border-radius: 6px;
+    box-shadow: 0 0 8px #00e5ff88;
+    z-index: 2;
+  }
+  .sn-food {
+    position: absolute;
+    background: #ff4081;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff408188;
+    animation: pulse 0.8s ease-in-out infinite alternate;
+  }
+  @keyframes pulse {
+    from { transform: scale(0.85); }
+    to   { transform: scale(1.1); }
+  }
+  .sn-overlay {
+    position: absolute; inset: 0;
+    background: rgba(10,10,15,0.88);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 12px; z-index: 10;
+    border-radius: 10px;
+  }
+  .sn-overlay p    { font-size: 1.6rem; font-weight: 800; margin: 0; }
+  .sn-overlay span { color: #aaa; }
+  .sn-overlay button { background: #69f0ae; color: #000; border: none;
+    padding: 10px 24px; border-radius: 10px; font-weight: 800; cursor: pointer; }
+  
+  .sn-dpad {
+    display: grid; grid-template-columns: repeat(3, 52px);
+    gap: 8px; margin-top: 20px;
+  }
+  .sn-dpad button {
+    width: 52px; height: 52px;
+    background: #1e1e2e; border: 1px solid #2a2a3e;
+    border-radius: 10px; color: #fff; font-size: 1.2rem; cursor: pointer;
+  }
+  .sn-dpad button:hover { background: #2a2a3e; }
+  .sn-dpad div { /* spacer */ }

@@ -9,11 +9,16 @@ import MathGame from "./components/MathGame";
 import Sudoku from "./components/Sudoku";
 import Leaderboard from "./components/Leaderboard";
 
-// New components
+// Existing new components
 import GameSelect from "./components/GameSelect";
 import MemoryGame from "./components/MemoryGame";
 import WordScramble from "./components/WordScramble";
 import TypingTest from "./components/TypingTest";
+
+// New games
+import Game2048 from "./components/Game2048";
+import SnakeGame from "./components/SnakeGame";
+import TicTacToe from "./components/TicTacToe";
 
 function App() {
   return (
@@ -40,10 +45,15 @@ function App() {
         {/* Sudoku Game */}
         <Route path="/sudoku" element={<Sudoku />} />
 
-        {/* New Games */}
+        {/* Existing New Games */}
         <Route path="/memory" element={<MemoryGame />} />
         <Route path="/word-scramble" element={<WordScramble />} />
         <Route path="/typing" element={<TypingTest />} />
+
+        {/* New Games */}
+        <Route path="/2048" element={<Game2048 />} />
+        <Route path="/snake" element={<SnakeGame />} />
+        <Route path="/tictactoe" element={<TicTacToe />} />
 
         {/* Leaderboard */}
         <Route path="/leaderboard" element={<Leaderboard />} />
