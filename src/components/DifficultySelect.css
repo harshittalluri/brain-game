@@ -1,0 +1,235 @@
+/* PAGE BACKGROUND */
+
+.difficulty-page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+
+  background:linear-gradient(
+    135deg,
+    #fdf2f8,
+    #f0f9ff,
+    #f5f3ff
+  );
+}
+
+
+/* GLASS CARD */
+
+.difficulty-card{
+  width:420px;
+  padding:45px;
+  border-radius:20px;
+
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,0.7);
+
+  text-align:center;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+  position:relative;
+  z-index:10;
+
+  animation:cardFloat 4s ease-in-out infinite alternate;
+}
+
+
+/* TITLE */
+
+.difficulty-title{
+  font-size:34px;
+  color:#374151;
+  margin-bottom:35px;
+  font-weight:600;
+}
+
+
+/* BUTTON GROUP */
+
+.levels{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+
+/* BUTTON BASE */
+
+.level{
+  border:none;
+  padding:16px;
+  border-radius:40px;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+
+/* EASY */
+
+.easy{
+  background:#bbf7d0;
+  color:#065f46;
+}
+
+.easy:hover{
+  transform:translateY(-3px);
+  background:#86efac;
+}
+
+
+/* MEDIUM */
+
+.medium{
+  background:#fde68a;
+  color:#78350f;
+}
+
+.medium:hover{
+  transform:translateY(-3px);
+  background:#fcd34d;
+}
+
+
+/* HARD */
+
+.hard{
+  background:#fbcfe8;
+  color:#831843;
+}
+
+.hard:hover{
+  transform:translateY(-3px);
+  background:#f9a8d4;
+}
+
+
+
+/* FLOATING NUMBERS */
+
+.math-bg{
+  position:absolute;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+.math-bg span{
+  position:absolute;
+  bottom:-100px;
+  font-size:38px;
+  color:rgba(100,116,139,0.25);
+  animation:floatUp linear infinite;
+}
+
+.math-bg span:nth-child(1){ left:10%; animation-duration:14s;}
+.math-bg span:nth-child(2){ left:25%; animation-duration:18s;}
+.math-bg span:nth-child(3){ left:40%; animation-duration:16s;}
+.math-bg span:nth-child(4){ left:55%; animation-duration:20s;}
+.math-bg span:nth-child(5){ left:70%; animation-duration:17s;}
+.math-bg span:nth-child(6){ left:85%; animation-duration:22s;}
+.math-bg span:nth-child(7){ left:30%; animation-duration:19s;}
+.math-bg span:nth-child(8){ left:60%; animation-duration:21s;}
+.math-bg span:nth-child(9){ left:75%; animation-duration:15s;}
+
+
+
+/* BRAINS FLOAT */
+
+.brains span{
+  position:absolute;
+  bottom:-120px;
+  font-size:32px;
+  opacity:0.35;
+  animation:floatUp linear infinite;
+}
+
+.brains span:nth-child(1){ left:15%; animation-duration:16s;}
+.brains span:nth-child(2){ left:45%; animation-duration:18s;}
+.brains span:nth-child(3){ left:65%; animation-duration:20s;}
+.brains span:nth-child(4){ left:85%; animation-duration:17s;}
+
+
+
+/* CONFETTI */
+
+.confetti span{
+  position:absolute;
+  bottom:-50px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#fbcfe8;
+  animation:floatUp linear infinite;
+}
+
+.confetti span:nth-child(1){ left:5%; animation-duration:12s;}
+.confetti span:nth-child(2){ left:20%; animation-duration:14s; background:#bae6fd;}
+.confetti span:nth-child(3){ left:35%; animation-duration:11s; background:#fde68a;}
+.confetti span:nth-child(4){ left:50%; animation-duration:13s; background:#bbf7d0;}
+.confetti span:nth-child(5){ left:65%; animation-duration:16s; background:#ddd6fe;}
+.confetti span:nth-child(6){ left:75%; animation-duration:15s; background:#fecdd3;}
+.confetti span:nth-child(7){ left:85%; animation-duration:17s; background:#a7f3d0;}
+.confetti span:nth-child(8){ left:95%; animation-duration:18s; background:#bfdbfe;}
+
+
+
+/* SPARKLES */
+
+.sparkles span{
+  position:absolute;
+  font-size:20px;
+  opacity:0.5;
+  animation:sparkle 6s ease-in-out infinite;
+}
+
+.sparkles span:nth-child(1){ left:20%; top:30%; }
+.sparkles span:nth-child(2){ left:70%; top:25%; }
+.sparkles span:nth-child(3){ left:30%; top:70%; }
+.sparkles span:nth-child(4){ left:85%; top:80%; }
+.sparkles span:nth-child(5){ left:50%; top:45%; }
+
+
+
+/* ANIMATIONS */
+
+@keyframes floatUp{
+
+  0%{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+
+  20%{
+    opacity:0.4;
+  }
+
+  100%{
+    transform:translateY(-120vh) rotate(360deg);
+    opacity:0;
+  }
+
+}
+
+@keyframes sparkle{
+
+  0%{ transform:scale(0.8); opacity:0.2;}
+  50%{ transform:scale(1.3); opacity:0.6;}
+  100%{ transform:scale(0.8); opacity:0.2;}
+
+}
+
+@keyframes cardFloat{
+
+  from{ transform:translateY(0px); }
+  to{ transform:translateY(-8px); }
+
+}

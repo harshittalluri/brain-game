@@ -1,0 +1,171 @@
+/* FULL PAGE BACKGROUND */
+
+.welcome-page{
+  min-height:100vh;
+  width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:linear-gradient(
+    135deg,
+    #0f172a,
+    #1e1b4b,
+    #312e81
+  );
+}
+
+
+/* MAIN WRAPPER */
+
+.welcome-wrapper{
+  width:100%;
+  max-width:1400px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 80px;
+  gap:60px;
+}
+
+
+/* LEFT IMAGE SECTION */
+
+.image-section{
+  flex:1.3;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+
+/* IMAGE */
+
+.brain-image{
+  width:125%;
+  max-width:900px;
+  height:auto;
+
+  animation:float 6s ease-in-out infinite;
+
+  /* prevents image from blocking button clicks */
+  pointer-events:none;
+}
+
+
+/* RIGHT CONTENT */
+
+.content-section{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+
+/* TITLE */
+
+.welcome-title{
+  font-size:60px;
+  color:white;
+  margin-bottom:10px;
+
+  text-shadow:
+  0 0 10px #9333ea,
+  0 0 20px #a855f7,
+  0 0 40px #c084fc;
+}
+
+
+/* SUBTITLE */
+
+.welcome-subtitle{
+  color:#cbd5f5;
+  font-size:18px;
+  margin-bottom:40px;
+}
+
+
+/* BUTTON AREA */
+
+.welcome-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  width:300px;
+}
+
+
+/* BUTTON BASE */
+
+.btn{
+  padding:16px;
+  border:none;
+  border-radius:30px;
+
+  font-size:18px;
+  font-weight:600;
+
+  cursor:pointer;
+  transition:0.3s;
+}
+
+
+/* MATH */
+
+.math{
+  background:linear-gradient(45deg,#22c55e,#4ade80);
+  color:white;
+}
+
+.math:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 20px #22c55e;
+}
+
+
+/* SUDOKU */
+
+.sudoku{
+  background:linear-gradient(45deg,#facc15,#fde047);
+}
+
+.sudoku:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 20px #facc15;
+}
+
+
+/* LEADERBOARD */
+
+.leaderboard{
+  background:linear-gradient(45deg,#ec4899,#f472b6);
+  color:white;
+}
+
+.leaderboard:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 20px #ec4899;
+}
+
+
+/* FLOAT ANIMATION */
+
+@keyframes float{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-15px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
