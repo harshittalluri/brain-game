@@ -9,6 +9,12 @@ import MathGame from "./components/MathGame";
 import Sudoku from "./components/Sudoku";
 import Leaderboard from "./components/Leaderboard";
 
+// New components
+import GameSelect from "./components/GameSelect";
+import MemoryGame from "./components/MemoryGame";
+import WordScramble from "./components/WordScramble";
+import TypingTest from "./components/TypingTest";
+
 function App() {
   return (
     <>
@@ -24,12 +30,20 @@ function App() {
         {/* After login welcome page */}
         <Route path="/welcome" element={<Welcome />} />
 
+        {/* Game Hub - shows all games */}
+        <Route path="/game" element={<GameSelect />} />
+
         {/* Math Game */}
         <Route path="/math-levels" element={<DifficultySelect />} />
         <Route path="/math" element={<MathGame />} />
 
         {/* Sudoku Game */}
         <Route path="/sudoku" element={<Sudoku />} />
+
+        {/* New Games */}
+        <Route path="/memory" element={<MemoryGame />} />
+        <Route path="/word-scramble" element={<WordScramble />} />
+        <Route path="/typing" element={<TypingTest />} />
 
         {/* Leaderboard */}
         <Route path="/leaderboard" element={<Leaderboard />} />

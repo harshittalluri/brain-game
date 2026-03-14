@@ -1,9 +1,27 @@
 /* =====================================================
-   index.css â€” ONLY navbar + animations
+   index.css – ONLY navbar + animations
    No global input, button, body, h2 styles at all.
    ===================================================== */
 
-/* â”€â”€â”€ NAVBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── GLOBAL RESET ───────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Dark scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ── NAVBAR ───────────────────────────────────────── */
 .navbar {
   position: fixed;
   top: 0;
@@ -71,7 +89,7 @@
   box-shadow: 0 0 12px #ff3b4d;
 }
 
-/* â”€â”€â”€ SHARED ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── SHARED ANIMATIONS ──────────────────────────────── */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }

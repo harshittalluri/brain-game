@@ -1,0 +1,55 @@
+/* src/components/TypingTest.css */
+.tt-wrap {
+    min-height: calc(100vh - 64px);
+    background: #0a0a0f; display: flex; flex-direction: column;
+    align-items: center; padding: 48px 20px;
+    font-family: "Segoe UI", sans-serif; color: #fff;
+  }
+  .tt-title { font-size: 2rem; font-weight: 800; margin-bottom: 24px; }
+  .tt-stats {
+    display: flex; gap: 32px; margin-bottom: 32px;
+  }
+  .tt-stat {
+    background: #111118; border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
+    border-radius: 14px; padding: 16px 28px; text-align: center; min-width: 100px;
+    box-shadow: 0 0 16px color-mix(in srgb, var(--c) 12%, transparent);
+  }
+  .tt-val { display: block; font-size: 2rem; font-weight: 800; color: var(--c); }
+  .tt-lab { font-size: 0.75rem; color: #666; letter-spacing: 1px; text-transform: uppercase; }
+  .tt-display {
+    background: #111118; border: 1px solid #222; border-radius: 16px;
+    padding: 24px 28px; max-width: 680px; width: 100%;
+    font-size: 1.15rem; line-height: 1.9; letter-spacing: 0.5px;
+    margin-bottom: 20px; word-break: break-word;
+  }
+  .tt-char { color: #555; }
+  .tt-char.correct { color: #69f0ae; }
+  .tt-char.wrong   { color: #ff4081; background: #2a0f18; border-radius: 2px; }
+  .tt-char.cursor  { border-left: 2px solid #ce93d8; }
+  .tt-hint { color: #555; font-size: 0.85rem; margin-bottom: 16px; }
+  .tt-input {
+    width: 100%; max-width: 680px; height: 100px;
+    background: #1a1a2a; border: 1px solid #333; border-radius: 12px;
+    color: #fff; font-size: 1rem; padding: 14px 18px;
+    resize: none; outline: none; font-family: monospace; letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  .tt-input:focus { border-color: #ce93d8; }
+  .tt-btn {
+    background: #ce93d8; color: #000; border: none;
+    padding: 10px 28px; border-radius: 10px; font-weight: 700;
+    font-size: 0.95rem; cursor: pointer;
+  }
+  .tt-btn.outline {
+    background: transparent; color: #ce93d8;
+    border: 1px solid #ce93d8;
+  }
+  .tt-btn:hover { opacity: 0.85; }
+  .tt-result {
+    background: #111118; border: 1px solid #333;
+    border-radius: 20px; padding: 40px; text-align: center;
+    max-width: 400px;
+  }
+  .tt-result h2 { font-size: 1.8rem; margin-bottom: 12px; }
+  .tt-result p { color: #aaa; margin-bottom: 24px; }
+  .tt-result strong { color: #ce93d8; }

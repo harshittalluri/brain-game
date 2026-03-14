@@ -1,0 +1,57 @@
+/* src/components/WordScramble.css */
+.ws-wrap {
+    min-height: calc(100vh - 64px);
+    background: #0a0a0f;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 48px 20px; font-family: "Segoe UI", sans-serif; color: #fff;
+  }
+  .ws-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+  .ws-scorebar {
+    display: flex; gap: 24px; color: #aaa; font-size: 0.95rem; margin-bottom: 32px;
+  }
+  .ws-scorebar strong { color: #ffab40; }
+  .ws-card {
+    background: #111118; border: 1px solid #2a2a35;
+    border-radius: 20px; padding: 36px 40px;
+    max-width: 500px; width: 100%; text-align: center;
+    margin-bottom: 28px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .ws-card.correct { border-color: #69f0ae; box-shadow: 0 0 24px #69f0ae22; }
+  .ws-card.wrong   { border-color: #ff4081; box-shadow: 0 0 24px #ff408122; }
+  .ws-hint { color: #888; font-size: 0.95rem; margin-bottom: 28px; }
+  .ws-scrambled { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .ws-letter {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 52px;
+    background: #1e1e2e; border: 1px solid #333;
+    border-radius: 10px; font-size: 1.5rem; font-weight: 700;
+    color: #ffab40;
+    animation: popIn 0.3s ease both;
+  }
+  @keyframes popIn {
+    from { opacity:0; transform:scale(0.7) translateY(-8px); }
+    to   { opacity:1; transform:scale(1) translateY(0); }
+  }
+  .ws-feedback {
+    font-size: 0.95rem; font-weight: 600; margin-top: 8px;
+  }
+  .ws-feedback.correct { color: #69f0ae; }
+  .ws-feedback.wrong   { color: #ff4081; }
+  .ws-controls { display: flex; gap: 12px; align-items: center; }
+  .ws-input {
+    padding: 12px 18px; border-radius: 10px; border: 1px solid #333;
+    background: #1a1a2a; color: #fff; font-size: 1.1rem;
+    letter-spacing: 3px; font-weight: 700; width: 200px;
+    outline: none;
+  }
+  .ws-input:focus { border-color: #ffab40; }
+  .ws-btn {
+    padding: 12px 22px; border-radius: 10px; font-weight: 700;
+    font-size: 0.95rem; cursor: pointer; border: none;
+  }
+  .ws-btn.primary { background: #ffab40; color: #000; }
+  .ws-btn.primary:hover { background: #ffc26a; }
+  .ws-btn.skip { background: #222; color: #aaa; border: 1px solid #444; }
+  .ws-btn.skip:hover { background: #333; }
+  .ws-btn:disabled { opacity: 0.4; cursor: not-allowed; }
