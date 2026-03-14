@@ -1,0 +1,277 @@
+/* PAGE BACKGROUND */
+
+.math-page{
+
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  
+    position:relative;
+    overflow:hidden;
+  
+    background:linear-gradient(
+      135deg,
+      #fde2e4,
+      #e2f0ff,
+      #f3e8ff
+    );
+  
+    font-family: "Poppins", sans-serif;
+  }
+  
+  
+  /* ANIME BACKGROUND IMAGE */
+  
+  .math-page::before{
+  
+    content:"";
+  
+    position:absolute;
+    inset:0;
+  
+    background:url("https://wallpaperaccess.com/full/2696619.jpg");
+  
+    background-size:cover;
+    background-position:center;
+  
+    opacity:0.15;
+  
+    z-index:0;
+  }
+  
+  
+  /* FLOATING SHAPES */
+  
+  .math-page::after{
+  
+    content:"";
+  
+    position:absolute;
+  
+    width:400px;
+    height:400px;
+  
+    background:radial-gradient(circle,#ffd6ff,#ffc8dd);
+  
+    top:-120px;
+    left:-120px;
+  
+    border-radius:50%;
+  
+    filter:blur(120px);
+  
+    opacity:0.6;
+  }
+  
+  
+  /* GLASS CARD */
+  
+  .math-card{
+  
+    width:420px;
+    padding:40px;
+  
+    border-radius:25px;
+  
+    background:rgba(255,255,255,0.75);
+  
+    backdrop-filter:blur(10px);
+  
+    text-align:center;
+  
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.15);
+  
+    z-index:1;
+  
+    animation:fadeIn 0.7s ease;
+  }
+  
+  
+  /* TITLE */
+  
+  .math-title{
+  
+    font-size:32px;
+    margin-bottom:25px;
+  
+    color:#6b4eff;
+  
+    font-weight:600;
+  }
+  
+  
+  /* QUESTION */
+  
+  .math-question{
+  
+    font-size:44px;
+  
+    color:#3b3b3b;
+  
+    margin-bottom:25px;
+  
+    font-weight:700;
+  }
+  
+  
+  /* INPUT */
+  
+  .math-input{
+  
+    width:100%;
+    padding:14px;
+  
+    font-size:18px;
+  
+    border-radius:12px;
+  
+    border:2px solid #e4e4e4;
+  
+    margin-bottom:20px;
+  
+    text-align:center;
+  
+    outline:none;
+  
+    transition:0.25s;
+  }
+  
+  .math-input:focus{
+  
+    border-color:#a78bfa;
+  
+    box-shadow:0 0 10px rgba(167,139,250,0.3);
+  }
+  
+  
+  /* SUBMIT BUTTON */
+  
+  .math-submit{
+  
+    width:100%;
+    padding:14px;
+  
+    border:none;
+  
+    border-radius:30px;
+  
+    font-size:18px;
+  
+    font-weight:600;
+  
+    cursor:pointer;
+  
+    background:linear-gradient(
+      45deg,
+      #a78bfa,
+      #c4b5fd
+    );
+  
+    color:white;
+  
+    transition:0.3s;
+  }
+  
+  .math-submit:hover{
+  
+    transform:translateY(-2px);
+  
+    box-shadow:0 8px 18px rgba(167,139,250,0.5);
+  }
+  
+  
+  /* SAVE BUTTON */
+  
+  .save-btn{
+  
+    margin-top:18px;
+  
+    width:100%;
+  
+    padding:13px;
+  
+    border:none;
+  
+    border-radius:30px;
+  
+    background:linear-gradient(
+      45deg,
+      #7dd3fc,
+      #bae6fd
+    );
+  
+    font-weight:600;
+  
+    cursor:pointer;
+  
+    transition:0.3s;
+  }
+  
+  .save-btn:hover{
+  
+    transform:translateY(-2px);
+  
+    box-shadow:0 8px 18px rgba(125,211,252,0.5);
+  }
+  
+  
+  /* SCORE */
+  
+  .score{
+  
+    margin-top:18px;
+  
+    color:#444;
+  
+    font-size:20px;
+  
+    font-weight:500;
+  }
+  
+  
+  /* FEEDBACK */
+  
+  .math-feedback{
+  
+    margin-top:15px;
+  
+    font-size:18px;
+  
+    color:#333;
+  }
+  
+  
+  /* SHAKE */
+  
+  .shake{
+  
+    animation:shake 0.5s;
+  }
+  
+  @keyframes shake{
+  
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-6px);}
+    50%{transform:translateX(6px);}
+    75%{transform:translateX(-6px);}
+    100%{transform:translateX(0);}
+  }
+  
+  
+  /* FADE ANIMATION */
+  
+  @keyframes fadeIn{
+  
+    from{
+      opacity:0;
+      transform:translateY(25px);
+    }
+  
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  
+  }

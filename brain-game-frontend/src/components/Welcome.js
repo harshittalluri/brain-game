@@ -1,24 +1,62 @@
 import { useNavigate } from "react-router-dom";
 import "./Welcome.css";
+import brainImage from "../assets/images/brain imagesss.png";
 
 function Welcome() {
   const navigate = useNavigate();
 
   return (
-    <div className="kid-container">
-      <h1 className="kid-title">🎉 Welcome to Brain Game!</h1>
+    <div className="welcome-page">
 
-      <button className="kid-btn kid-easy" onClick={() => navigate("/math-levels")}>
-        ➕ Math Games
-      </button>
+      <div className="welcome-wrapper">
 
-      <button className="kid-btn kid-medium" onClick={() => navigate("/sudoku")}>
-        🧩 Sudoku
-      </button>
+        {/* LEFT SIDE IMAGE */}
+        <div className="image-section">
+          <img
+            src={brainImage}
+            alt="Brain Game"
+            className="brain-image"
+          />
+        </div>
 
-      <button className="kid-btn kid-hard" onClick={() => navigate("/leaderboard")}>
-        🏆 Leaderboard
-      </button>
+        {/* RIGHT SIDE CONTENT */}
+        <div className="content-section">
+
+          <h1 className="welcome-title">🎮 Brain Game</h1>
+
+          <p className="welcome-subtitle">
+            Train your brain with fun challenges
+          </p>
+
+          <div className="welcome-buttons">
+
+            <button
+              className="btn math"
+              onClick={() => navigate("/math-levels")}
+            >
+              ➕ Math Games
+            </button>
+
+            <button
+              className="btn sudoku"
+              onClick={() => navigate("/sudoku")}
+            >
+              🧩 Sudoku
+            </button>
+
+            <button
+              className="btn leaderboard"
+              onClick={() => navigate("/leaderboard")}
+            >
+              🏆 Leaderboard
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
   );
 }

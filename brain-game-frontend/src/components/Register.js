@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "axios";import "./Register.css";
 
 function Register() {
+
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -12,50 +13,55 @@ function Register() {
   });
 
   const registerUser = async () => {
-  try {
-    await axios.post("http://localhost:8085/api/users/register", user);
-    alert("Registered Successfully!");
-    navigate("/login");  // 👈 go to login instead
-  } catch (error) {
-    alert("Registration Failed");
-  }
-};
-
+    try {
+      await axios.post("http://localhost:8085/api/users/register", user);
+      alert("Registered Successfully!");
+      navigate("/login");
+    } catch (error) {
+      alert("Registration Failed");
+    }
+  };
 
   return (
-  <div className="container">
-    <h2>Register 🎮</h2>
+    <div className="register-page">
 
-    <input
-      placeholder="Username"
-      onChange={(e)=>setUser({...user, username:e.target.value})}
-    />
+      <div className="register-container">
 
-    <input
-      placeholder="Email"
-      onChange={(e)=>setUser({...user, email:e.target.value})}
-    />
+        <h2>Register 🎮</h2>
 
-    <input
-      type="password"
-      placeholder="Password"
-      onChange={(e)=>setUser({...user, password:e.target.value})}
-    />
+        <input
+          placeholder="Username"
+          onChange={(e)=>setUser({...user, username:e.target.value})}
+        />
 
-    <button onClick={registerUser}>Create Account</button>
+        <input
+          placeholder="Email"
+          onChange={(e)=>setUser({...user, email:e.target.value})}
+        />
 
-    <p style={{marginTop: "15px"}}>Already have an account?</p>
+        <input
+          type="password"
+          placeholder="Password"
+          onChange={(e)=>setUser({...user, password:e.target.value})}
+        />
 
-    <button
-      style={{background: "#555"}}
-      onClick={() => navigate("/login")}
-    >
-      Go to Login
-    </button>
-  </div>
-);
+        <button onClick={registerUser}>
+          Create Account
+        </button>
 
+        <p style={{marginTop: "15px"}}>Already have an account?</p>
 
+        <button
+          style={{background:"#555"}}
+          onClick={() => navigate("/login")}
+        >
+          Go to Login
+        </button>
+
+      </div>
+
+    </div>
+  );
 }
 
 export default Register;

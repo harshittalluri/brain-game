@@ -1,84 +1,234 @@
-/* === FULLSCREEN LAYOUT === */
-.sudoku-page {
-  width: 100%;
-  height: calc(100vh - 80px); /* minus navbar height */
+/* Sudoku.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 80px;
+  box-sizing: border-box;
+}
+
+/* â”€â”€ PAGE WRAPPER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Wide enough: left panel(180) + board(486) + right panel(180) 
+   + padding(40) + borders = ~950px minimum
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.sudoku-page {
+  display: inline-flex;      /* shrink-wraps to content */
+  align-items: stretch;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   overflow: hidden;
 }
 
-/* === TOP AREA (TITLE & BUTTONS) === */
-.sudoku-top {
-  text-align: center;
-  margin-bottom: 10px;
+/* â”€â”€ LAYOUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.sudoku-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
+/* â”€â”€ SIDE PANELS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.side-panel {
+  padding: 28px 20px;
+  background-color: #f9f9f9;
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.left-panel {
+  border-right: 1px solid #e0e0e0;
+}
+
+.right-panel {
+  border-left: 1px solid #e0e0e0;
+}
+
+/* â”€â”€ TITLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .sudoku-title {
-  font-size: 2.2rem;
+  font-size: 1.8em;
   font-weight: bold;
-  color: #ff4da6;
-  margin-bottom: 5px;
+  margin: 0 0 20px 0;
+  color: #222;
 }
 
-.top-controls {
+/* â”€â”€ DIFFICULTY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.difficulty-label {
+  font-weight: bold;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.difficulty-select {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+/* â”€â”€ RESET BUTTON â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.reset-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.reset-btn:hover {
+  background-color: #45a049;
+}
+
+/* â”€â”€ MESSAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.message {
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+/* â”€â”€ STAT BOXES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.stat-box {
+  margin-bottom: 20px;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+}
+
+/* â”€â”€ BOARD WRAPPER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.board-wrapper {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 10px;
+  align-items: center;
+  /* padding gives space between panels and board */
+  padding: 28px 24px;
+  flex-shrink: 0;
 }
 
-.difficulty-select,
-.reset-btn {
-  padding: 6px 16px;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.reset-btn {
-  background: linear-gradient(to right, #00f7ff, #00ff88);
-  font-weight: bold;
-}
-
-.message {
-  height: 26px;
-  font-size: 1.1rem;
-}
-
-/* === AUTO-SCALED GRID (FULL TABLE FITS SCREEN) === */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   BOARD
+   cell = 54px  â†’  9 Ã— 54 = 486px exactly
+   gap: 0  â€” gaps break nth-child selectors
+   box-sizing: content-box â€” border is outside cells
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .sudoku-board {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(9, 54px);
+  grid-template-rows:    repeat(9, 54px);
+  gap: 0;
 
-  /* The REAL FIX: full sudoku shrinks to fit height */
-  height: calc(100vh - 220px); /* page minus top controls */
-  width: calc(100vh - 220px);  /* PERFECT square */
+  /* Hardcoded â€” no calc, no 1fr */
+  width:  486px;
+  height: 486px;
 
-  max-width: 650px;
-  max-height: 650px;
-
-  aspect-ratio: 1 / 1;
-  gap: 2px;
+  border: 3px solid #000;
+  border-radius: 4px;
+  box-sizing: content-box;
+  overflow: visible;
+  flex-shrink: 0;
 }
 
-/* === CELLS === */
+/* â”€â”€ CELLS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .sudoku-cell {
-  width: 100%;
-  height: 100%;
+  width:      54px;
+  height:     54px;
+  min-width:  54px;
+  min-height: 54px;
+  max-width:  54px;
+  max-height: 54px;
+
+  font-size: 1.3em;
   text-align: center;
-  font-weight: bold;
-  font-size: 1.6rem;
-  border-radius: 6px;
-  border: 1px solid #aaa;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  border-top:    1px solid #ccc;
+  border-left:   1px solid #ccc;
+  border-right:  1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  caret-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  background: white;
 }
 
-.fixed {
-  background: #dfeaff;
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   3Ã—3 BOX DIVIDERS â€” thick lines
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+/* Thick right after col 3 */
+.sudoku-cell:nth-child(9n+3) {
+  border-right: 3px solid #000 !important;
 }
 
-.editable {
-  background: #fff3a8;
+/* Thick right after col 6 */
+.sudoku-cell:nth-child(9n+6) {
+  border-right: 3px solid #000 !important;
+}
+
+/* Thick bottom after row 3 */
+.sudoku-cell:nth-child(n+19):nth-child(-n+27) {
+  border-bottom: 3px solid #000 !important;
+}
+
+/* Thick bottom after row 6 */
+.sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+  border-bottom: 3px solid #000 !important;
+}
+
+/* â”€â”€ CELL STATES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.sudoku-cell.fixed {
+  background-color: #e0e0e0;
+  color: #000;
+  font-weight: 700;
+}
+
+.sudoku-cell.editable {
+  background-color: #fff;
+  color: #1a56db;
+}
+
+.sudoku-cell.editable:hover {
+  background-color: #f0f7ff;
+}
+
+.sudoku-cell:focus {
+  background-color: #fef9c3;
+  color: #000;
+  position: relative;
+  z-index: 1;
 }

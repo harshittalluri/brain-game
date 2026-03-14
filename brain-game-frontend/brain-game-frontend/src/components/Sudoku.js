@@ -60,60 +60,41 @@ function Sudoku() {
       setMessage("❌ Wrong number!");
     }
   };
+
   return (
     <div className="sudoku-page">
-      <div className="sudoku-layout">
-        
-        {/* LEFT SIDE PANEL */}
-        <div className="side-panel left-panel">
-          <h1 className="sudoku-title">Sudoku 🧩</h1>
-          <div className="difficulty-label">Difficulty</div>
+
+      <div className="sudoku-top">
+        <h1 className="sudoku-title">Sudoku 🧩</h1>
+
+        <div className="top-controls">
           <select className="difficulty-select" value={difficulty} onChange={changeDifficulty}>
             <option value="easy">😊 Easy</option>
             <option value="medium">😎 Medium</option>
             <option value="hard">🔥 Hard</option>
           </select>
+
           <button className="reset-btn" onClick={resetPuzzle}>🔄 Reset</button>
-          {message && <div className="message">{message}</div>}
         </div>
-  
-        <div className="board-wrapper">
-  <div className="sudoku-board">
-    {board.map((row, i) =>
-      row.map((cell, j) => (
-        <input
-          type="text"
-          maxLength="1"
-          key={`${i}-${j}`}
-          className={`sudoku-cell ${fixed[i][j] ? "fixed" : "editable"}`}
-          value={cell === 0 ? "" : cell}
-          onChange={(e) => handleInput(i, j, e.target.value)}
-        />
-      ))
-    )}
-  </div>
-</div>
-  
-        {/* RIGHT SIDE PANEL */}
-        <div className="side-panel right-panel">
-          <div className="stat-box">
-            <div className="stat-label">Level</div>
-            <div className="stat-value">{difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</div>
-          </div>
-          <div className="stat-box">
-            <div className="stat-label">Grid</div>
-            <div className="stat-value">9 × 9</div>
-          </div>
-          <div className="stat-box">
-            <div className="stat-label">Mode</div>
-            <div className="stat-value">Classic</div>
-          </div>
-        </div>
-  
+
+        <div className="message">{message}</div>
       </div>
+
+      <div className="sudoku-board">
+        {board.map((row, i) =>
+          row.map((cell, j) => (
+            <input
+              key={`${i}-${j}`}
+              className={`sudoku-cell ${fixed[i][j] ? "fixed" : "editable"}`}
+              value={cell === 0 ? "" : cell}
+              onChange={(e) => handleInput(i, j, e.target.value)}
+            />
+          ))
+        )}
+      </div>
+
     </div>
   );
-  
 }
 
 export default Sudoku;
