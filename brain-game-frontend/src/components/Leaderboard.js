@@ -9,6 +9,12 @@ const GAMES = [
   { key: "MEMORY",       label: "Memory Flip",    icon: "🃏", color: "#69f0ae" },
   { key: "WORD_SCRAMBLE",label: "Word Scramble",  icon: "🔤", color: "#ffab40" },
   { key: "TYPING",       label: "Typing Speed",   icon: "⌨️", color: "#ce93d8" },
+  { key: "2048",         label: "2048",           icon: "🎯", color: "#edc22e" },
+  { key: "SNAKE",        label: "Snake",          icon: "🐍", color: "#69f0ae" },
+  { key: "TICTACTOE",    label: "Tic Tac Toe",    icon: "✖️", color: "#ce93d8" },
+  { key: "COMFY_CAKES",  label: "Comfy Cakes",    icon: "🎂", color: "#ff6b9d" },
+  { key: "PURBLE_SHOP",  label: "Purble Shop",    icon: "🎭", color: "#c084fc" },
+  { key: "COMPU_VILLE",  label: "Compu-Ville",    icon: "🏘️", color: "#34d399" },
 ];
 
 const MEDALS = ["🥇", "🥈", "🥉"];
@@ -38,24 +44,27 @@ function Leaderboard() {
 
   return (
     <div className="lb-wrap">
+
       {/* Header */}
       <div className="lb-header">
         <h1 className="lb-title">🏆 Leaderboard</h1>
         <p className="lb-subtitle">Top players across all games</p>
       </div>
 
-      {/* Game Tabs */}
-      <div className="lb-tabs">
-        {GAMES.map((g) => (
-          <button
-            key={g.key}
-            className={`lb-tab ${active === g.key ? "active" : ""}`}
-            style={{ "--accent": g.color }}
-            onClick={() => setActive(g.key)}
-          >
-            {g.icon} {g.label}
-          </button>
-        ))}
+      {/* Game Tabs - horizontally scrollable */}
+      <div className="lb-tabs-wrapper">
+        <div className="lb-tabs">
+          {GAMES.map((g) => (
+            <button
+              key={g.key}
+              className={`lb-tab ${active === g.key ? "active" : ""}`}
+              style={{ "--accent": g.color }}
+              onClick={() => setActive(g.key)}
+            >
+              {g.icon} {g.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Scores Table */}
@@ -71,13 +80,11 @@ function Leaderboard() {
           <div className="lb-empty">No scores yet. Be the first! 🎮</div>
         ) : (
           <div className="lb-list">
-            {/* Column headers */}
             <div className="lb-row lb-row-header">
               <span>Rank</span>
               <span>Player</span>
               <span>Score</span>
             </div>
-
             {currentScores.map((item, i) => (
               <div
                 key={i}
@@ -96,6 +103,7 @@ function Leaderboard() {
           </div>
         )}
       </div>
+
     </div>
   );
 }

@@ -1,20 +1,17 @@
-.register-page{
-
-    height:100vh;
-    width:100%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    position:relative;
-
-    background-image:url("../assets/images/anime-bg.png");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-}
+.register-page {
+    height: calc(100vh - 72px);  /* ← subtract navbar height */
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url("../assets/images/anime-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 
 /* DARK OVERLAY */
 

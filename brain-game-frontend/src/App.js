@@ -27,7 +27,7 @@ import CompuVille from "./components/Compuville";
 
 function App() {
   return (
-    <>
+    <div className="app-wrapper">
       <Navbar />
 
       <Routes>
@@ -68,7 +68,7 @@ function App() {
         {/* Leaderboard */}
         <Route path="/leaderboard" element={<Leaderboard />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
